@@ -9,6 +9,6 @@ public class Ingredient {
     private final String name;
     private final Type type;
     public enum Type{
-        CRUST, VEGGIES, MEATS, CHEESE, SAUCE
+        CRUST, VEGGIES, MEAT, CHEESE, SAUCE
     }
 }
