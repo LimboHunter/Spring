@@ -6,9 +6,9 @@
     <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
 <body>
-<h1>Design your taco!</h1>
+<h1>Design your pizza!</h1>
 <img th:src="@{/images/pizza.png}"/>
-<form method="POST" th:object="${pizza}">
+<form method="POST" th:object="${design}">
     <span class="validationError"
           th:if="${#fields.hasErrors('ingredients')}"
           th:errors="*{ingredients}">Ingredient Error</span>
@@ -55,7 +55,7 @@
         </div>
     </div>
     <div>
-        <h3>Name your taco creation:</h3>
+        <h3>Name your pizza creation:</h3>
         <input type="text" th:field="*{name}"/>
         <br/>
         <button>Submit Your Pizza</button>
