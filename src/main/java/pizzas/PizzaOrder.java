@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class PizzaOrder {
     private String deliveryName;
-    private String deliverySteet;
+    private String deliveryStreet;
     private String deliveryCity;
     private String deliveryState;
     private String deliveryZip;

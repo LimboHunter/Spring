@@ -70,6 +70,15 @@ public class DesignPizzaController {
         model.addAttribute("design", new Pizza());
         return "design";
     }
+
+    @PostMapping
+    public String processPizza(Pizza pizza,
+                               @ModelAttribute PizzaOrder pizzaOrder){
+        pizzaOrder.addPizza(pizza);
+        log.info("Processing pizza: {}", pizza);
+        return "redirect:/orders/current";
+    }
+
     private Iterable<Ingredient> filterByType(
             List<Ingredient> ingredients, Type type){
         return ingredients
