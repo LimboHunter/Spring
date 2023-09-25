@@ -2,6 +2,7 @@ package pizzas.web;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +11,9 @@ import pizzas.Ingredient.Type;
 
 @Component
 public class IngredientByIdConverter implements Converter<String,Ingredient> {
-    
+
     private Map<String, Ingredient> ingredientMap = new HashMap<>();
-    
+
     public IngredientByIdConverter(){
         ingredientMap.put( "ThinC" ,new Ingredient("ThinC", "Thin Crust", Type.CRUST));
                 ingredientMap.put( "ThickC" ,new Ingredient("ThickC", "Thick Crust", Type.CRUST));
@@ -32,7 +33,7 @@ public class IngredientByIdConverter implements Converter<String,Ingredient> {
                 ingredientMap.put( "GC" ,new Ingredient("GC", "Goat Cheese", Type.CHEESE));
                 ingredientMap.put( "RC" ,new Ingredient("RC", "Ricotta Cheese", Type.CHEESE));
     };
-    
+
     @Override
     public Ingredient convert(String id){
         return ingredientMap.get(id);

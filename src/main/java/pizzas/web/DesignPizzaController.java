@@ -1,19 +1,15 @@
-// tag::head[]
 package pizzas.web;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import javax.validation.Valid;
 
 import lombok.extern.slf4j.Slf4j;
 import pizzas.Ingredient;
@@ -21,8 +17,8 @@ import pizzas.Ingredient.Type;
 import pizzas.Pizza;
 import pizzas.PizzaOrder;
 
-
-
+import javax.validation.Valid;
+import org.springframework.validation.Errors;
 @Slf4j
 @Controller
 @RequestMapping("/design")
@@ -70,8 +66,7 @@ public class DesignPizzaController {
     }
 
     @GetMapping
-    public String showDesignForm(Model model){
-        model.addAttribute("design", new Pizza());
+    public String showDesignForm(){
         return "design";
     }
 
@@ -89,7 +84,7 @@ public class DesignPizzaController {
     }
 
     private Iterable<Ingredient> filterByType(
-            List<Ingredient> ingredients, Type type){
+            List<Ingredient> ingredients, Type type) {
         return ingredients
                 .stream()
                 .filter(x -> x.getType().equals(type))
