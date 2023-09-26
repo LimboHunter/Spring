@@ -10,7 +10,7 @@
 
 <body>
 <h1>Design your pizza!</h1>
-<img th:src="@{/images/pizza.png}"/>
+<img class="logo", th:src="@{/images/pizza.png}" />
 
 <!-- tag::formTag[] -->
 <form method="POST" th:object="${pizza}">
@@ -24,10 +24,10 @@
     <div class="grid">
         <!-- end::formTag[] -->
         <!-- end::head[] -->
-        <div class="ingredient-group" id="wraps">
+        <div class="ingredient-group" id="crusts">
             <!-- tag::designateWrap[] -->
-            <h3>Designate your wrap:</h3>
-            <div th:each="ingredient : ${wrap}">
+            <h3>Designate your crust:</h3>
+            <div th:each="ingredient : ${crust}">
                 <input th:field="*{ingredients}" type="checkbox"
                        th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span><br/>
@@ -35,9 +35,9 @@
             <!-- end::designateWrap[] -->
         </div>
 
-        <div class="ingredient-group" id="proteins">
-            <h3>Pick your protein:</h3>
-            <div th:each="ingredient : ${protein}">
+        <div class="ingredient-group" id="meatss">
+            <h3>Pick your meat:</h3>
+            <div th:each="ingredient : ${meat}">
                 <input th:field="*{ingredients}" type="checkbox"
                        th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span><br/>

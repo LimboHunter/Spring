@@ -1,9 +1,9 @@
 package pizzas;
 
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.ArrayList;
 import lombok.Data;

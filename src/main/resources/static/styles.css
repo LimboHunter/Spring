@@ -27,3 +27,6 @@ div.ingredient-group {
 span.validationError {
 	color: red;
 }
+.logo {
+    max-width: 50%;
+}
