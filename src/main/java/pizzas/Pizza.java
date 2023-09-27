@@ -14,4 +14,6 @@ public class Pizza {
     @NotNull
     @Size(min = 1, message = "Choose at least one element")
     private List<Ingredient> ingredients;
+    int a = -1;
+
 }
