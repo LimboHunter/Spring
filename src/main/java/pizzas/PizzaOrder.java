@@ -4,11 +4,19 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 import lombok.Data;
 @Data
-public class PizzaOrder {
+public class PizzaOrder implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private long id;
+
+    private Date placedAt;
 
     @NotBlank(message = "Delivery name is required")
     private String deliveryName;

@@ -1,8 +1,11 @@
 package pizzas.web;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,35 +22,26 @@ import pizzas.PizzaOrder;
 
 import javax.validation.Valid;
 import org.springframework.validation.Errors;
+import pizzas.data.IngredientRepository;
+
 @Slf4j
 @Controller
 @RequestMapping("/design")
 @SessionAttributes("pizzaOrder")
 public class DesignPizzaController {
 
+    private final IngredientRepository ingredientRepo;
+
+    @Autowired
+    public DesignPizzaController(
+            IngredientRepository ingredientRepo) {
+        this.ingredientRepo = ingredientRepo;
+    }
 //end::head[]
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
-        List<Ingredient> ingredients = Arrays.asList(
-                new Ingredient("ThinC", "Thin Crust", Type.CRUST),
-                new Ingredient("ThickC", "Thick Crust", Type.CRUST),
-                new Ingredient("WFC", "Wood-Fired Crust", Type.CRUST),
-                new Ingredient("TS", "Tomato Sause", Type.SAUCE),
-                new Ingredient("WS", "White Sause", Type.SAUCE),
-                new Ingredient("SLM", "Salami", Type.MEAT),
-                new Ingredient("CHICK", "Chicken", Type.MEAT),
-                new Ingredient("BCN", "Bacon", Type.MEAT),
-                new Ingredient("ONS", "Onions", Type.VEGGIES),
-                new Ingredient("SWPS", "Sweet Papers", Type.VEGGIES),
-                new Ingredient("PIAP", "Pinespple", Type.VEGGIES),
-                new Ingredient("TMS", "Tomatoes", Type.VEGGIES),
-                new Ingredient("MSRM", "Mushroom", Type.VEGGIES),
-                new Ingredient("MOZA", "Mozarella", Type.CHEESE),
-                new Ingredient("Prov", "Provolone", Type.CHEESE),
-                new Ingredient("GC", "Goat Cheese", Type.CHEESE),
-                new Ingredient("RC", "Ricotta Cheese", Type.CHEESE)
-        );
-
+        List<Ingredient> ingredients = new ArrayList<>();
+        ingredientRepo.findAll().forEach(i -> ingredients.add(i));
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(),
