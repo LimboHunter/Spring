@@ -1,4 +1,4 @@
-package pizzas.data;
+package pizzas;
 
 import lombok.Data;
 

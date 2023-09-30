@@ -1,5 +1,6 @@
 package pizzas;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.NotNull;
@@ -18,6 +19,6 @@ public class Pizza {
 
     @NotNull
     @Size(min = 1, message = "Choose at least one element")
-    private List<Ingredient> ingredients;
+    private List<IngredientRef> ingredients = new ArrayList<>();
 
 }

@@ -1,9 +1,11 @@
 package pizzas.data;
 
+import org.springframework.data.repository.CrudRepository;
 import pizzas.Ingredient;
 import java.util.Optional;
 
-public interface IngredientRepository {
+public interface IngredientRepository
+        extends CrudRepository<Ingredient, String> {
 
     Iterable<Ingredient> findAll();
 

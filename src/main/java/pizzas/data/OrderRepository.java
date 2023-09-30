@@ -1,9 +1,10 @@
 package pizzas.data;
 
-import pizzas.Pizza;
+import org.springframework.data.repository.CrudRepository;
 import pizzas.PizzaOrder;
 
-public interface OrderRepository {
+public interface OrderRepository
+        extends CrudRepository<PizzaOrder, Long> {
 
     PizzaOrder save(PizzaOrder order);
 
