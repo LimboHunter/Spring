@@ -2,18 +2,26 @@ package pizzas;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
-import org.hibernate.validator.constraints.CreditCardNumber;
 import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
+
 import lombok.Data;
+
 @Data
+@Table
 public class PizzaOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
     private long id;
 
     private Date placedAt;

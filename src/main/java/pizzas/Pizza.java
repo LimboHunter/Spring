@@ -3,12 +3,20 @@ package pizzas;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
 import lombok.Data;
+
 @Data
+@Table
 public class Pizza {
 
+    @Id
     private long id;
 
     private Date createdAt = new Date();
