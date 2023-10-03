@@ -16,9 +16,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import pizzas.data.IngredientRepository;
 import pizzas.data.OrderRepository;
 
-@ExtendWith(SpringExtension.class)
-@WebMvcTest()
-public class HomeControllerTest {
+@WebMvcTest
+public class HomePageBrowserTest {
 
     @Autowired
     private  MockMvc mockMvc;
