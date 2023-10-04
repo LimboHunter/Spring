@@ -1,31 +1,27 @@
 package pizzas;
 
-import javax.persistence.*;
-
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.NotBlank;
-
 import org.hibernate.validator.constraints.CreditCardNumber;
-
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
-
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@Entity
+@Table
 public class PizzaOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private Date placedAt = new Date();
+    private Date placedAt;
 
     @NotBlank(message = "Delivery name is required")
     private String deliveryName;
@@ -51,7 +47,6 @@ public class PizzaOrder implements Serializable {
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
 
-    @OneToMany(cascade = CascadeType.ALL)
     private List<Pizza> pizzas = new ArrayList<>();
 
     public void addPizza(Pizza pizza){

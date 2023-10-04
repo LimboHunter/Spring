@@ -1,14 +1,13 @@
 package pizzas;
 
-import lombok.*;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Table
+@RequiredArgsConstructor
 public class Ingredient {
 
     @Id
