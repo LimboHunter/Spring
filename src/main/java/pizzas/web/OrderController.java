@@ -1,6 +1,7 @@
 package pizzas.web;
 import javax.validation.Valid;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -45,11 +46,12 @@ public class OrderController {
     @PostMapping
     public String processOrder(@Valid PizzaOrder order, Errors errors,
                                SessionStatus sessionStatus,
-                               @AuthenticationPrincipal User user){
+                               Authentication authentication){
         if(errors.hasErrors()){
             return "orderForm";
         }
-
+//Problem somewhere here - failing to send user to add it to order field
+        User user = (User) authentication.getAuthorities().stream();
         order.setUser(user);
 
         orderRepo.save(order);
