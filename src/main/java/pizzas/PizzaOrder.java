@@ -13,10 +13,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@Table
+@Table()
 public class PizzaOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+
+    private User user;
 
     @Id
     private long id;
@@ -50,6 +53,11 @@ public class PizzaOrder implements Serializable {
     private List<Pizza> pizzas = new ArrayList<>();
 
     public void addPizza(Pizza pizza){
+        this.placedAt();
         this.pizzas.add(pizza);
+    }
+
+    void placedAt(){
+        this.placedAt = new Date();
     }
 }
