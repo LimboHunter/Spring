@@ -52,6 +52,7 @@ public class OrderController {
 
         order.setUser(user.getId());
 
+        //Problem with "save" method, that somehow save fields that does not exist anymore
         orderRepo.save(order);
         sessionStatus.setComplete();
 
