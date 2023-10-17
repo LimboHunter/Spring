@@ -20,12 +20,6 @@ create table if not exists Pizza
     pizza_order_key bigint      not null,
     created_at      timestamp   not null
 );
-create table if not exists Ingredient_Ref
-(
-    ingredient varchar(4) not null,
-    pizza      bigint     not null,
-    pizza_key  bigint     not null
-);
 create table if not exists Ingredient
 (
     id   varchar(4)  not null,
@@ -33,7 +27,7 @@ create table if not exists Ingredient
     type varchar(10) not null
 );
 alter table Pizza
-    add foreign key (pizza_order) references Pizza_Order(id);
+    add foreign key (pizza_order) references pizza_order(id);
 alter table Ingredient_Ref
     add foreign key (ingredient) references Ingredient(id);
 alter table Pizza_Order
