@@ -5,11 +5,13 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
 @Table
+@EqualsAndHashCode(exclude = "createdAt")
 public class Pizza {
 
     @Id
@@ -23,6 +25,9 @@ public class Pizza {
 
     @NotNull
     @Size(min = 1, message = "Choose at least one element")
-    private List<Ingredient> ingredients;
+    private List<IngredientRef> ingredients;
 
+    public void addIngredient(Ingredient taco) {
+        this.ingredients.add(new IngredientRef(taco.getId()));
+    }
 }

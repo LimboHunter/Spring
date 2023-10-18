@@ -42,6 +42,7 @@ public class DesignPizzaController {
     public void addIngredientsToModel(Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
         ingredientRepo.findAll().forEach(i -> ingredients.add(i));
+
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(),

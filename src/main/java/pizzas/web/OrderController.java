@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
 import pizzas.*;
-import pizzas.data.IngredientRefRepository;
 import pizzas.data.OrderRepository;
 
 @Controller
@@ -18,7 +17,6 @@ public class OrderController {
 
     private OrderRepository orderRepo;
 
-    private IngredientRefRepository ingredientRefRepo;
 
     public OrderController(OrderRepository orderRepo){
         this.orderRepo = orderRepo;
@@ -53,7 +51,7 @@ public class OrderController {
         }
 
         order.setUser(user.getId());
-        //Problem with "save" method, that somehow save fields that exists in other table, but not this one
+
         orderRepo.save(order);
         sessionStatus.setComplete();
 
