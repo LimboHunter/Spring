@@ -27,7 +27,7 @@ public class Pizza {
     @Size(min = 1, message = "Choose at least one element")
     private List<IngredientRef> ingredients;
 
-    public void addIngredient(Ingredient taco) {
-        this.ingredients.add(new IngredientRef(taco.getId()));
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(new IngredientRef(ingredient.getId()));
     }
 }
