@@ -92,10 +92,6 @@ public class DesignPizzaControllerTest {
             new Ingredient("RC", "Ricotta Cheese", Type.CHEESE)
     ));
 
-    for(Ingredient ingredient : tempIngredient) {
-      design.addIngredient(ingredient);
-    }
-
     when(userRepository.findByUsername("test"))
     		.thenReturn(new User("test", "123", "test", "test", "test", "test", "test", "test"));
   }
