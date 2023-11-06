@@ -2,20 +2,20 @@ package pizzas;
 
 import java.util.Date;
 import java.util.List;
-import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@Entity
+@Table
+@EqualsAndHashCode(exclude = "createdAt")
 public class Pizza {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
     private Date createdAt = new Date();
 
@@ -23,12 +23,11 @@ public class Pizza {
     @Size(min = 5, message = "Name must be at least 5 letters long")
     private String name;
 
-    @ManyToMany(targetEntity = Ingredient.class)
+    @NotNull
     @Size(min = 1, message = "Choose at least one element")
-    private List<Ingredient> ingredients;
+    private List<IngredientRef> ingredients;
 
-    @PrePersist
-    void createdAt(){
-        this.createdAt = new Date();
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(new IngredientRef(ingredient.getId()));
     }
 }
