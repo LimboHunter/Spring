@@ -4,3 +4,6 @@ spring:
     username: postgres
     password: admin
     initialize: true
+  data:
+    rest:
+    base-path: /data-api

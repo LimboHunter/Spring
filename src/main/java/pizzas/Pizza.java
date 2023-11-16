@@ -8,9 +8,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 @Data
 @Table
+@RestResource(rel = "pizzas", path = "pizzas")
 @EqualsAndHashCode(exclude = "createdAt")
 public class Pizza {
 
