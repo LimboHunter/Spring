@@ -86,15 +86,16 @@ public class DesignPizzaControllerTest {
 
     design = new Pizza();
     design.setName("Test Pizza");
+
     List<Ingredient> tempIngredient = (Arrays.asList(
             new Ingredient("ThkC", "Thick Crust", Type.CRUST),
             new Ingredient("COCK", "Chicken", Type.MEAT),
             new Ingredient("RC", "Ricotta Cheese", Type.CHEESE)
     ));
 
-    for(Ingredient ingredient : tempIngredient) {
+/*    for(Ingredient ingredient : tempIngredient) {
       design.addIngredient(ingredient);
-    }
+    }*/
 
     when(userRepository.findByUsername("test"))
     		.thenReturn(new User("test", "123", "test", "test", "test", "test", "test", "test"));
