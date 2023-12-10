@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pizzas.PizzaOrder;
 import pizzas.data.OrderRepository;
+import pizzas.messaging.OrderMessagingService;
 
 @RestController
 @RequestMapping(path="/api/orders",
@@ -13,9 +14,12 @@ import pizzas.data.OrderRepository;
 public class OrderApiController {
 
     private OrderRepository repo;
+    private OrderMessagingService messageService;
 
-    public OrderApiController(OrderRepository repo){
+    public OrderApiController(OrderRepository repo,
+                              OrderMessagingService messageService){
         this.repo = repo;
+        this.messageService = messageService;
     }
 
     @GetMapping(produces = "application/json")
@@ -23,7 +27,10 @@ public class OrderApiController {
 
     @PostMapping(consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public PizzaOrder postOrder(@RequestBody PizzaOrder order){ return repo.save(order);}
+    public PizzaOrder postOrder(@RequestBody PizzaOrder order){
+        messageService.sendOrder(order);
+        return repo.save(order);
+    }
 
     @PutMapping(path = "/{orderId", consumes = "application/json")
     public PizzaOrder putOrder(

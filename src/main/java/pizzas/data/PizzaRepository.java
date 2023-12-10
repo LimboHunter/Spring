@@ -1,8 +1,9 @@
 package pizzas.data;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import pizzas.Pizza;
 
 public interface PizzaRepository extends
-        CrudRepository<Pizza, Long> {
+        PagingAndSortingRepository<Pizza, Long> {
 }

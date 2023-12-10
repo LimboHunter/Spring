@@ -23,12 +23,12 @@ public class PizzaController {
         this.pizzaRepo = pizzaRepo;
     }
 
-/*    @GetMapping(params = "recent")
+    @GetMapping(params = "recent")
     public Iterable<Pizza> recentPizzas() {
         PageRequest page = PageRequest.of(
                 0, 12, Sort.by("createdAt").descending());
         return pizzaRepo.findAll(page).getContent();
-    }*/
+    }
     @GetMapping("/{id}")
     public Optional<Pizza> pizzaById(@PathVariable("id") Long id){
         return pizzaRepo.findById(id);
