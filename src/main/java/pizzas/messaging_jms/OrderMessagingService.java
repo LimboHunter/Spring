@@ -1,4 +1,4 @@
-package pizzas.messaging;
+package pizzas.messaging_jms;
 
 import pizzas.PizzaOrder;
 

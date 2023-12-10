@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pizzas.PizzaOrder;
 import pizzas.data.OrderRepository;
-import pizzas.messaging.OrderMessagingService;
+import pizzas.messaging_jms.OrderMessagingService;
 
 @RestController
 @RequestMapping(path="/api/orders",

@@ -16,7 +16,7 @@ public class JmsOrderReceiver implements OrderReceiver {
         this.jms = jms;
     }
 
-    public PizzaOrder recieveOrder(){
+    public PizzaOrder receiveOrder(){
         return (PizzaOrder) jms.receiveAndConvert("pizzacloud.order.queue");
     }
 }

@@ -1,15 +1,15 @@
-package pizzas.messaging;
+package pizzas.kitchen.messaging.jms;
 
-import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import pizzas.PizzaOrder;
 
-import javax.jms.Destination;
 import java.util.HashMap;
 import java.util.Map;
 
+@Profile({"jms-template", "jms-listener"})
 @Configuration
 public class MessagingConfig {
 
@@ -19,15 +19,10 @@ public class MessagingConfig {
                 new MappingJackson2MessageConverter();
         messageConverter.setTypeIdPropertyName("_typeId");
 
-        Map<String , Class<?>> typeIdMapping = new HashMap<String, Class<?>>();
-        typeIdMapping.put("order",PizzaOrder.class);
-        messageConverter.setTypeIdMappings(typeIdMapping);
+        Map<String, Class<?>> typeIdMappings = new HashMap<String, Class<?>>();
+        typeIdMappings.put("order", PizzaOrder.class);
+        messageConverter.setTypeIdMappings(typeIdMappings);
 
         return messageConverter;
-    }
-
-    @Bean
-    public Destination orderQueue(){
-        return new ActiveMQQueue("pizzacloud.order.queue");
     }
 }

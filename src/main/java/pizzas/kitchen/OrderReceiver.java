@@ -4,5 +4,5 @@ import pizzas.PizzaOrder;
 
 public interface OrderReceiver {
 
-    PizzaOrder recieveOrder();
+    PizzaOrder receiveOrder();
 }
