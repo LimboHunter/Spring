@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import pizzas.PizzaOrder;
 
-import javax.print.attribute.standard.Destination;
+import javax.jms.Destination;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,8 +26,8 @@ public class MessagingConfig {
         return messageConverter;
     }
 
-/*    @Bean
+    @Bean
     public Destination orderQueue(){
         return new ActiveMQQueue("pizzacloud.order.queue");
-    }*/
+    }
 }
