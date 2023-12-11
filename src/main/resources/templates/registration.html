@@ -5,29 +5,29 @@
     <title>Pizza Cloud</title>
     <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
-<body>
-<h1>Register</h1>
+<body class="home_body">
+<h1 class="main_head">Регистрация</h1>
 <img class="logo" th:src="@{/images/pizza.png}"/>
-<form method="POST" th:action="@{/register}" id="registerForm">
-    <label for="username">Username: </label>
+<form class="order_form" method="POST" th:action="@{/register}" id="registerForm">
+    <label for="username">Логин: </label>
     <input type="text" name="username"/><br/>
-    <label for="password">Password: </label>
+    <label for="password">Пароль: </label>
     <input type="password" name="password"/><br/>
-    <label for="confirm">Confirm password: </label>
+    <label for="confirm">Подтвердите пароль: </label>
     <input type="password" name="confirm"/><br/>
-    <label for="fullname">Full name: </label>
+    <label for="fullname">Полное имя: </label>
     <input type="text" name="fullname"/><br/>
-    <label for="street">Street: </label>
+    <label for="street">Улица: </label>
     <input type="text" name="street"/><br/>
-    <label for="city">City: </label>
+    <label for="city">Город: </label>
     <input type="text" name="city"/><br/>
-    <label for="state">State: </label>
+    <label for="state">Округ: </label>
     <input type="text" name="state"/><br/>
     <label for="zip">Zip: </label>
     <input type="text" name="zip"/><br/>
-    <label for="phone">Phone: </label>
+    <label for="phone">Телефон: </label>
     <input type="text" name="phone"/><br/>
-    <input type="submit" value="Register"/>
+    <input type="submit" value="Регистрация"/>
 </form>
 </body>
 </html>
