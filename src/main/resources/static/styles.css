@@ -29,4 +29,136 @@ span.validationError {
 }
 .logo {
     max-width: 750px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.btn {
+    text-align: center;
+    max-width: 150px;
+    font-family: monospace;
+    font-size: 45px;
+    border-radius: 25px;
+    display: block;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    & input{
+        font-family: monospace;
+        font-size: 25px;
+    }
+}
+.main{
+    text-align: center;
+}
+
+.main_head {
+    background-color: darkgrey;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 25px;
+    font-size: 45px;
+    height: 15vh;
+    width: 100vw;
+    margin-left:-8px;
+    margin-top: -10px;
+    box-shadow: 0 -5px 30px 5px black;
+    text-shadow: #FC0 1px 0 10px;
+}
+
+.main_text{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 45px;
+    background-color: black;
+    max-width: 30%;
+    border-radius: 25px;
+    color: white;
+    & a{
+        color: burlywood;
+    }
+    & a:link {
+        text-decoration: none;
+    }
+    & a:visited { text-decoration: none; }
+    & a:active { text-decoration: none; }
+    & input{
+        height: 35px;
+        width: 250px;
+        border-radius: 25px;
+    }
+}
+
+.home_body{
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('./images/background.png');
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    background-attachment:fixed;
+    background-position:center bottom;
+}
+
+.login_form{
+    font-family: monospace;
+    font-size: 25px;
+    & input{
+        font-family: monospace;
+        font-size: 25px;
+    }
+}
+
+.login_text{
+    font-size: 25px;
+}
+
+.design_form{
+    font-family: monospace;
+    font-size: 25px;
+}
+
+.submission{
+    border-radius: 25px;
+    display: block;
+    margin-top: 5px;
+    & input{
+        margin-top: 10px;
+        font-family: monospace;
+        font-size: 25px;
+        border-radius: 25px;
+    }
+    & button{
+        margin-top: 10px;
+        font-family: monospace;
+        font-size: 25px;
+        border-radius: 25px;
+    }
+}
+
+.order_form{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: monospace;
+    font-size: 25px;
+    & a{
+        color: crimson;
+    }
+    & a:link {
+        text-decoration: none;
+    }
+    & a:visited { text-decoration: none; }
+    & a:active { text-decoration: none; }
+    & input{
+        height: 35px;
+        width: 250px;
+        border-radius: 25px;
+        font-family: monospace;
+        font-size: 25px;
+    }
+    & ul{
+        list-style-type: none;
+    }
 }

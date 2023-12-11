@@ -8,16 +8,14 @@
     <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
 
-<body>
-<h1>Design your pizza!</h1>
+<body class="home_body">
+<h1 class="main_head">Создайте свою пиццу!</h1>
 <img class="logo", th:src="@{/images/pizza.png}" />
 
-<form method="POST" th:action="@{/logout}" id="logoutForm">
-    <input type="submit" value="Logout"/>
-</form>
+
 
 <!-- tag::formTag[] -->
-<form method="POST" th:object="${pizza}">
+<form method="POST" th:object="${pizza}" class="design_form">
     <!-- end::all[] -->
     
     <span class="validationError"
@@ -30,7 +28,7 @@
         <!-- end::head[] -->
         <div class="ingredient-group" id="crusts">
             <!-- tag::designateWrap[] -->
-            <h3>Designate your crust:</h3>
+            <h3>Выберите основу:</h3>
             <div th:each="ingredient : ${crust}">
                 <input th:field="*{ingredients}" type="checkbox"
                        th:value="${ingredient.id}"/>
@@ -40,7 +38,7 @@
         </div>
 
         <div class="ingredient-group" id="meatss">
-            <h3>Pick your meat:</h3>
+            <h3>Добавьте мясо:</h3>
             <div th:each="ingredient : ${meat}">
                 <input th:field="*{ingredients}" type="checkbox"
                        th:value="${ingredient.id}"/>
@@ -49,7 +47,7 @@
         </div>
 
         <div class="ingredient-group" id="cheeses">
-            <h3>Choose your cheese:</h3>
+            <h3>Выберите сыр:</h3>
             <div th:each="ingredient : ${cheese}">
                 <input th:field="*{ingredients}" type="checkbox"
                        th:value="${ingredient.id}"/>
@@ -58,7 +56,7 @@
         </div>
 
         <div class="ingredient-group" id="veggies">
-            <h3>Determine your veggies:</h3>
+            <h3>Добавьте овощи:</h3>
             <div th:each="ingredient : ${veggies}">
                 <input th:field="*{ingredients}" type="checkbox"
                        th:value="${ingredient.id}"/>
@@ -67,7 +65,7 @@
         </div>
 
         <div class="ingredient-group" id="sauces">
-            <h3>Select your sauce:</h3>
+            <h3>Выберите соус:</h3>
             <div th:each="ingredient : ${sauce}">
                 <input th:field="*{ingredients}" type="checkbox"
                        th:value="${ingredient.id}"/>
@@ -76,11 +74,11 @@
         </div>
     </div>
 
-    <div>
+    <div class="submission">
 
 
-        <h3>Name your pizza creation:</h3>
-        <input type="text" th:field="*{name}"/>
+        <h3>Назовите свою пиццу:</h3>
+        <input  type="text" th:field="*{name}"/>
         <!-- end::all[] -->
         <span class="validationError"
               th:if="${#fields.hasErrors('name')}"
@@ -88,7 +86,7 @@
         <!-- tag::all[] -->
         <br/>
 
-        <button>Submit Your Pizza</button>
+        <button>Создать пиццу</button>
     </div>
     <!-- tag::closeFormTag[] -->
 </form>

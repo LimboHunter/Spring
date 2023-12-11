@@ -17,5 +17,3 @@ spring:
     password: password
     embedded:
       enabled: false
-  application:
-    name: PizzaKitchenApplication

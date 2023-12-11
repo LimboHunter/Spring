@@ -22,11 +22,11 @@ public class Pizza {
     private Date createdAt = new Date();
 
     @NotNull
-    @Size(min = 5, message = "Name must be at least 5 letters long")
+    @Size(min = 5, message = "Имя должно быть не короче 5-ти символов")
     private String name;
 
     @NotNull
-    @Size(min = 1, message = "Choose at least one element")
+    @Size(min = 1, message = "Выберите хотя бы один элемент")
     private List<IngredientRef> ingredients;
 
     public void addIngredient(Ingredient ingredient) {

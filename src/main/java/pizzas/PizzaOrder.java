@@ -26,28 +26,28 @@ public class PizzaOrder implements Serializable {
 
     private Date placedAt;
 
-    @NotBlank(message = "Delivery name is required")
+    @NotBlank(message = "Необходимо Имя")
     private String deliveryName;
 
-    @NotBlank(message = "Street name required")
+    @NotBlank(message = "Необходима Улица")
     private String deliveryStreet;
 
-    @NotBlank(message = "City required")
+    @NotBlank(message = "Необходим Город")
     private String deliveryCity;
 
-    @NotBlank(message = "State is required")
+    @NotBlank(message = "Необходим Округ")
     private String deliveryState;
 
-    @NotBlank(message = "Zip required")
+    @NotBlank(message = "Необходим Zip")
     private String deliveryZip;
 
-    @CreditCardNumber(message = "Credit card number is invalid")
+    @CreditCardNumber(message = "Неверный номер карты")
     private String ccNumber;
 
-    @Pattern(regexp = "^(0[1-9]|1[0-2])([\\\\/])([2-9][0-9])$", message = "Wrong format (MM/YY)")
+    @Pattern(regexp = "^(0[1-9]|1[0-2])([\\\\/])([2-9][0-9])$", message = "Неверный формат (ММ/ГГ)")
     private String ccExpiration;
 
-    @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
+    @Digits(integer = 3, fraction = 0, message = "Неверный CVV")
     private String ccCVV;
 
     private List<Pizza> pizzas = new ArrayList<>();

@@ -5,13 +5,23 @@
   <title>Pizza Cloud</title>
   <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
-<body>
-<h1>Welcome to...</h1>
-<img class="logo", th:src="@{/images/pizza.png}"/>
-<form method="POST" th:action="@{/logout}" id="logoutForm">
-  <input type="submit" value="Logout"/>
-</form>
+<body class="home_body">
+<h1 class="main_head">Welcome to Pizza Cloud</h1>
+<div class="home_body_image" background-image="">
+</div>
+<div>
+  <img class="logo", th:src="@{/images/pizza.png}"/>
+</div>
 
-<a th:href="@{/design}" id="design">Design a pizza</a>
+<div class="main_text active_elem">
+  <a th:href="@{/design}" id="design">Создать пиццу</a>
+</div>
+<div >
+  <form method="POST" th:action="@{/logout}" id="logoutForm" class="btn">
+    <input class="btn" type="submit" value="Выход">
+  </form>
+</div>
+
+
 </body>
 </html>
